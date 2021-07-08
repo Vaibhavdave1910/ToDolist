@@ -1,0 +1,23 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #AB82FF;
+}
+
+#Logincontainer{
+    margin-top: 20vh;
+    margin-left: 10vw;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+/*    border: 3px solid black;*/
+}
+#GridView {
+    margin-top:25vh;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items:center;
+    /*    border: 3px solid black;*/
+}
