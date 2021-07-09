@@ -12,33 +12,57 @@
 </head>
 <body>
     <form id="form1" runat="server">
+         <div>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">To Do List</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="Add_Task.aspx">Add Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="Task_View.aspx">Task View</a>
+        </li>
+          <li class="nav-item ">
+              <asp:Button CssClass="btn btn-dark" ID="Logout_btn" runat="server" Text="Logout" OnClick="Logout_btn_Click" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        </div>
+
         <div id="GridView">
-            <asp:GridView ID="GridView1"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="ID,TaskName,TaskDate,TaskTime" OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Height="305px" PageSize="5">
-                <AlternatingRowStyle BackColor="#F7F7F7" />
+            <asp:GridView ID="GridView1"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ID,TaskName,TaskDate,TaskTime" OnRowCommand="GridView1_RowCommand" PageSize="5" CssClass="btn btn-light" Font-Bold="True" Font-Names="Consolas" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="TaskName" HeaderText="TaskName" SortExpression="TaskName" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:BoundField DataField="TaskDate" HeaderText="TaskDate" SortExpression="TaskDate" />
                     <asp:BoundField DataField="TaskTime" HeaderText="TaskTime" SortExpression="TaskTime" />
-                    <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" />
                     <asp:ButtonField ButtonType="Button" CommandName="detail" Text="Detail" />
                     <asp:CommandField ButtonType="Button" ShowSelectButton="True"></asp:CommandField>
+                    <asp:ButtonField CommandName="delete" Text="delete"></asp:ButtonField>
                 </Columns>
-                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
-                <SortedAscendingCellStyle BackColor="#F4F4FD" />
-                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
-                <SortedDescendingCellStyle BackColor="#D8D8F0" />
-                <SortedDescendingHeaderStyle BackColor="#3E3277" />
+                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                <PagerStyle Height="0px" Width="0px" Wrap="True" BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#33276A" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ToDoListAppConnectionString %>" 
-                SelectCommand="SELECT * FROM [Taskview]" DeleteCommand="DELETE FROM [Taskview] WHERE [TaskName] = @TaskName" InsertCommand="INSERT INTO [Taskview] ([ID], [TaskName], [Description], [TaskDate], [TaskTime]) VALUES (@ID, @TaskName, @Description, @TaskDate, @TaskTime)" UpdateCommand="UPDATE [Taskview] SET [TaskName] = @TaskName, [Description] = @Description, [TaskDate] = @TaskDate, [TaskTime] = @TaskTime WHERE [ID] = @ID" 
-               
-                >
+                SelectCommand="SELECT * FROM [Taskview]" 
+                DeleteCommand="DELETE FROM [Taskview] WHERE [TaskName] = @TaskName"
+                InsertCommand="INSERT INTO [Taskview] ([ID], [TaskName], [Description], [TaskDate], [TaskTime]) VALUES (@ID, @TaskName, @Description, @TaskDate, @TaskTime)" 
+                UpdateCommand="UPDATE [Taskview] SET [TaskName] = @TaskName, [Description] = @Description, [TaskDate] = @TaskDate, [TaskTime] = @TaskTime WHERE [ID] = @ID" >
                 <DeleteParameters>
                     <asp:Parameter Name="TaskName" />
                 </DeleteParameters>
@@ -57,6 +81,9 @@
                     <asp:Parameter Name="ID" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+            <br />
+            <br />
+            <br />
             <br />
             <br />
             <br />

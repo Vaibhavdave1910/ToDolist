@@ -6,7 +6,7 @@
 }
 
 #Logincontainer{
-    margin-top: 20vh;
+    margin-top: 10vh;
     margin-left: 10vw;
     display: flex;
     -webkit-justify-content: center;
@@ -14,10 +14,18 @@
 /*    border: 3px solid black;*/
 }
 #GridView {
-    margin-top:25vh;
+    margin-top:10vh;
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
     align-items:center;
     /*    border: 3px solid black;*/
+}
+#Addtask1 {
+    /*    margin-top:10vh;*/
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
 }

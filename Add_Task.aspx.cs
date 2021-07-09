@@ -22,14 +22,18 @@ namespace ToDolist
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string email = Session["email"].ToString();
             string TaskName = Taskname.Text;
             string TaskDescription = Taskdesc.Text;
             string TaskDate = Taskdnt.Text;
             string TaskTime = Time_inp.Text;
+            string createTime = DateTime.Now.ToString();
             string constr = ConfigurationManager.ConnectionStrings["ToDoListAppConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT into Taskview values(next value for seq1,'"+TaskName+"','"+TaskDescription+"','"+TaskDate+"','"+TaskTime+"')", con);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("Insert into LogTime(Email,TaskName,CreateTime) values('"+email+"','"+TaskName+"','" + createTime + "')", con);
             cmd.ExecuteNonQuery();
 
 

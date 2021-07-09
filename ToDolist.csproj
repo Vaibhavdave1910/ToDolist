@@ -114,7 +114,6 @@
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskView.cs" />
     <Compile Include="Task_view.aspx.cs">
       <DependentUpon>Task_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

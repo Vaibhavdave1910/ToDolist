@@ -6,10 +6,36 @@
 <head runat="server">
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+    <div >
+        <div id="Addtask1">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Add_Task.aspx">Add Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Task_View.aspx">Task View</a>
+        </li>
+          <li class="nav-item">
+            <asp:Button ID="Logout_btn" CssClass="btn btn-dark" runat="server" OnClick="Logout_btn_Click" Text="Logout" />          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        </div>
+
+        <div >
         <fieldset>
             <legend>Add task</legend>
             <asp:Label ID="Label1" runat="server" Text="Task Name" Width="150px"></asp:Label>
@@ -34,12 +60,10 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="Logout_btn" runat="server" OnClick="Logout_btn_Click" Text="Logout" />
             <br />
         </fieldset>    
         </div>
+        </div>
     </form>
-    <p>
-        &nbsp;</p>
 </body>
 </html>
