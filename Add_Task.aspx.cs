@@ -47,7 +47,7 @@ namespace ToDolist
             string constr = ConfigurationManager.ConnectionStrings["ToDoListAppConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE time SET LogoutTime = '"+LogoutTime+"' WHERE Email = '"+email+ "' and  LogoutTime is null; ", con);
+            SqlCommand cmd = new SqlCommand("UPDATE Time2 SET LogoutTime = '"+LogoutTime+"' WHERE Email = '"+email+ "' and  LogoutTime is null; ", con);
             cmd.ExecuteNonQuery();
             Session.Abandon();
             Response.Redirect("LoginPage.aspx");

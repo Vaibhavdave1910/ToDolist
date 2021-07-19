@@ -96,6 +96,7 @@
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Task_view.aspx" />
+    <Content Include="Time.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Task_view.aspx.designer.cs">
       <DependentUpon>Task_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Time.aspx.cs">
+      <DependentUpon>Time.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Time.aspx.designer.cs">
+      <DependentUpon>Time.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

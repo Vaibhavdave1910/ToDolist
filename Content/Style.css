@@ -21,11 +21,19 @@
     align-items:center;
     /*    border: 3px solid black;*/
 }
-#Addtask1 {
+.Addtask1 {
     /*    margin-top:10vh;*/
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
+    /*    border: 3px solid black;*/
+}
+.Addtask {
+    margin-top: 10vh;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+/*        border: 3px solid black;*/
 }

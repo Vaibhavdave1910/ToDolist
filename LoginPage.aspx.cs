@@ -21,7 +21,7 @@ namespace ToDolist
         {
             string email = Email_inp.Text;
             string pass = pass_inp.Text;
-            string LoginTime = DateTime.Now.ToString();
+            string LoginTime = DateTime.Now.ToString("yyyy-mm-dd");
             string constr = ConfigurationManager.ConnectionStrings["ToDoListAppConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
             con.Open();
@@ -33,7 +33,7 @@ namespace ToDolist
                 {
                     Session["email"] = email;
                     r.Close();
-                    cmd = new SqlCommand("insert into time(Email,LoginTime) values('" + email + "','" + LoginTime + "')",con);
+                    cmd = new SqlCommand("insert into Time2(Email,LoginTime) values('" + email + "','" + LoginTime + "')",con);
                     cmd.ExecuteNonQuery();
                     Response.Redirect("Add_Task.aspx");
                     

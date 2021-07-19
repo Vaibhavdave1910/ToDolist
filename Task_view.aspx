@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <div>
+         <div class="Addtask1">
             <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">To Do List</a>
@@ -37,16 +37,16 @@
         </div>
 
         <div id="GridView">
-            <asp:GridView ID="GridView1"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ID,TaskName,TaskDate,TaskTime" OnRowCommand="GridView1_RowCommand" PageSize="5" CssClass="btn btn-light" Font-Bold="True" Font-Names="Consolas" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView1"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ID,TaskName" OnRowCommand="GridView1_RowCommand" PageSize="5" CssClass="btn btn-light" Font-Bold="True" Font-Names="Consolas" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
+                    <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" ReadOnly="True" />
                     <asp:BoundField DataField="TaskName" HeaderText="TaskName" SortExpression="TaskName" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:BoundField DataField="TaskDate" HeaderText="TaskDate" SortExpression="TaskDate" />
                     <asp:BoundField DataField="TaskTime" HeaderText="TaskTime" SortExpression="TaskTime" />
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" />
-                    <asp:ButtonField ButtonType="Button" CommandName="detail" Text="Detail" />
-                    <asp:CommandField ButtonType="Button" ShowSelectButton="True"></asp:CommandField>
-                    <asp:ButtonField CommandName="delete" Text="delete"></asp:ButtonField>
+                    <asp:ButtonField ButtonType="Button" CommandName="delete" Text="Delete" />
+                    <asp:ButtonField ButtonType="Button" CommandName="details" Text="Details" />
                 </Columns>
                 <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
                 <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
@@ -62,7 +62,7 @@
                 SelectCommand="SELECT * FROM [Taskview]" 
                 DeleteCommand="DELETE FROM [Taskview] WHERE [TaskName] = @TaskName"
                 InsertCommand="INSERT INTO [Taskview] ([ID], [TaskName], [Description], [TaskDate], [TaskTime]) VALUES (@ID, @TaskName, @Description, @TaskDate, @TaskTime)" 
-                UpdateCommand="UPDATE [Taskview] SET [TaskName] = @TaskName, [Description] = @Description, [TaskDate] = @TaskDate, [TaskTime] = @TaskTime WHERE [ID] = @ID" >
+                UpdateCommand="UPDATE Taskview SET TaskName = @TaskName, Description = @Description, TaskDate = @TaskDate, TaskTime = @TaskTime WHERE (ID = @ID)" >
                 <DeleteParameters>
                     <asp:Parameter Name="TaskName" />
                 </DeleteParameters>

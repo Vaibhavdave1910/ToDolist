@@ -15,8 +15,10 @@ namespace ToDolist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            if (Session["email"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
         }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -56,7 +58,7 @@ namespace ToDolist
                     cmd = new SqlCommand("delete from Taskview Where TaskName='"+v+"'", con);
                     cmd.ExecuteNonQuery();
                    
-                    con.Close();
+                    //con.Close();
                 }
             }
         }

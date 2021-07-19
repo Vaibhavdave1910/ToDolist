@@ -6,15 +6,15 @@
 <head runat="server">
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    
+    <link href="Content/Style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
     <div >
-        <div id="Addtask1">
+        <div class="Addtask1">
             <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">To Do List</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,7 +35,7 @@
 </nav>
         </div>
 
-        <div >
+        <div class="Addtask">
         <fieldset>
             <legend>Add task</legend>
             <asp:Label ID="Label1" runat="server" Text="Task Name" Width="150px"></asp:Label>
